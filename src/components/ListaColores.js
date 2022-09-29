@@ -12,7 +12,7 @@ const ListaColores = ({arregloColores,borrarColores}) => {
        
          {
            
-            arregloColores.map((item,indice)=><Cards className="col-12 col-md-6" style={item} color={item} key={indice} nombre={item}/>)
+            arregloColores.map((item,indice)=><Cards className="col-12 col-md-6" style={item} color={item} key={indice} nombre={item} borrarColores={borrarColores}/>)
          }
 
         

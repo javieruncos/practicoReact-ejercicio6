@@ -21,19 +21,19 @@ const Formluario = () => {
     setColores("");
   };
 
-  const borrarColores = (colores) => {
-    let newArreglo = arregloColores.filter((item) => item !== colores);
-    setColores(newArreglo);
+  const borrarColores = (Color) => {
+    let newArreglo = arregloColores.filter((item)=>item !== Color)
+    setArregloColores(newArreglo);
   };
 
   return (
     <Container className="my-5">
       <form onSubmit={handleSubmit}>
-        <div className="d-flex mb-5">
-        <div className="cajaColores"></div>
+        <div className="d-flex mb-3">
+        <div className="cajaColores" style={{'background':`${Colores}`}}></div>
         <input 
         type="text" 
-        className="form-control w-75"
+        className="form-control w-75 inputColor mt-3"
         onChange={(e)=>setColores(e.target.value)}
         value={Colores}
         >
