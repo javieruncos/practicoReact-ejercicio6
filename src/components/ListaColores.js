@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-import '../style/ListaColores.css'
 import Cards from './Cards';
 
 const ListaColores = ({arregloColores,borrarColores}) => {
