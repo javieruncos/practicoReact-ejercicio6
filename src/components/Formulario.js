@@ -27,6 +27,10 @@ const Formluario = () => {
   };
 
   return (
+    <>
+     <div className="mt-5">
+       <h1 className="text-center">Paleta de colores</h1>
+     </div>
     <Container className="my-5">
       <form onSubmit={handleSubmit}>
         <div className="d-flex mb-3">
@@ -36,6 +40,7 @@ const Formluario = () => {
         className="form-control w-75 inputColor mt-3"
         onChange={(e)=>setColores(e.target.value)}
         value={Colores}
+        required
         >
         </input>
         </div>
@@ -48,6 +53,7 @@ const Formluario = () => {
         borrarColores={borrarColores}
       />
     </Container>
+    </>
   );
 };
 
