@@ -9,10 +9,9 @@ const ListaColores = ({arregloColores,borrarColores}) => {
     return (
        <Container className="my-5 row">
        
-         {
-           
-            arregloColores.map((item,indice)=><Cards className="col-12 col-md-6" style={item} color={item} key={indice} nombre={item} borrarColores={borrarColores}/>)
-         }
+          {
+            arregloColores.map((item)=><Cards colores={item} key={item.id}></Cards>)
+          }
 
         
        </Container>

@@ -3,28 +3,21 @@ import { useState } from "react";
 import "../style/Formulario.css";
 import {  Button, Container } from "react-bootstrap";
 import ListaColores from "./ListaColores";
+import { consultarApi } from "../helper/queries";
 
 const Formluario = () => {
   
-   const coloresLocalStorage = JSON.parse(localStorage.getItem("listaColores"))||[];
-
-  const [Colores, setColores] = useState("");
-  const [arregloColores, setArregloColores] = useState(coloresLocalStorage);
+  
+  const [arregloColores, setArregloColores] = useState([]);
 
   useEffect(()=>{
-     localStorage.setItem("listaColores",JSON.stringify(arregloColores))
-  },[arregloColores])
+    consultarApi().then((respuesta)=>{
+      console.log(respuesta)
+      setArregloColores(respuesta)
+    })
+  },[])
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setArregloColores([...arregloColores, Colores]);
-    setColores("");
-  };
-
-  const borrarColores = (Color) => {
-    let newArreglo = arregloColores.filter((item)=>item !== Color)
-    setArregloColores(newArreglo);
-  };
+ 
 
   return (
     <>
@@ -32,14 +25,13 @@ const Formluario = () => {
        <h1 className="text-center">Paleta de colores</h1>
      </div>
     <Container className="my-5">
-      <form onSubmit={handleSubmit}>
+      <form>
         <div className="d-flex mb-3">
-        <div className="cajaColores" style={{'background':`${Colores}`}}></div>
+        <div className="cajaColores"></div>
         <input 
         type="text" 
         className="form-control w-75 inputColor mt-3"
-        onChange={(e)=>setColores(e.target.value)}
-        value={Colores}
+       
         required
         >
         </input>
@@ -48,10 +40,7 @@ const Formluario = () => {
           Guardar
         </Button>
       </form>
-      <ListaColores
-        arregloColores={arregloColores}
-        borrarColores={borrarColores}
-      />
+      <ListaColores arregloColores={arregloColores}/>
     </Container>
     </>
   );

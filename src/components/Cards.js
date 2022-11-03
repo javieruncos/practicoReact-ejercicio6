@@ -3,14 +3,14 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import '../style/Cards.css'
 
-const Cards = ({nombre,style,borrarColores}) => {
+const Cards = ({colores}) => {
   return (
     <>
       <Card className="col-12 col-md-4">
-        <div className="cajaCard" style={{'background':`${style}`}}></div>
+        <div className="cajaCard" style={{'background':`${colores.color}`}}></div>
         <Card.Body>
-          <Card.Title>{nombre}</Card.Title>
-          <Button variant="primary" onClick={()=>borrarColores(nombre)}>borrar</Button>
+          <Card.Title>{colores.color}</Card.Title>
+          <Button variant="primary">borrar</Button>
         </Card.Body>
       </Card>
     </>
