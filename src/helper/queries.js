@@ -15,3 +15,40 @@ export const consultarApi = async()=>{
     }
   
 }
+
+
+
+export const crearColor = async(color)=>{
+
+    try {
+        const respuesta = await fetch(url,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json",
+            
+            },
+            body:JSON.stringify(color)
+        })
+        return respuesta
+    } catch (error) {
+        console.log(error)
+        return false
+    }
+  
+}
+
+
+
+export const borrarColor = async (id)=>{
+    try {
+        const respusta = await fetch(url+"/"+id,{
+            method:"DELETE"
+        })
+        return  respusta;
+    } catch (error) {
+        console.log(error)
+        return false
+    }
+   
+   
+}
